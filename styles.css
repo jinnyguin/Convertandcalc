@@ -1,0 +1,69 @@
+*{box-sizing:border-box}
+:root{
+  --bg:#f5f1e8;
+  --card:#fffdf8;
+  --ink:#1e1d1a;
+  --muted:#6f6b62;
+  --line:#d9d2c3;
+  --accent:#1f5c4a;
+  --accent2:#df7e34;
+  --shadow:0 16px 40px rgba(35,28,18,.08);
+}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(223,126,52,.08),transparent 28rem),
+    var(--bg);
+  color:var(--ink);
+}
+.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+.site-header{position:sticky;top:0;z-index:20;background:rgba(245,241,232,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(217,210,195,.8)}
+.header-inner{height:70px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:1.2rem;font-weight:900;letter-spacing:-.04em;text-decoration:none;color:var(--ink)}
+.brand span{color:var(--accent2)}
+nav{display:flex;gap:20px}
+nav a{color:var(--muted);text-decoration:none;font-weight:700;font-size:.92rem}
+.hero{padding:72px 0 28px}
+.hero h1{font-family:Georgia,serif;font-size:clamp(2.5rem,8vw,5.7rem);line-height:.92;max-width:920px;margin:.2rem 0 1.2rem;letter-spacing:-.055em}
+.sub{font-size:1.1rem;line-height:1.6;color:var(--muted);max-width:680px}
+.eyebrow{font-size:.73rem;font-weight:900;letter-spacing:.18em;color:var(--accent);margin:0 0 .6rem}
+.calculator-shell{padding:24px 0 70px}
+.calc-card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow);max-width:690px}
+.calc-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.calc-title-row h2,.section h2,.seo-copy h2{margin:.15rem 0;font-family:Georgia,serif;font-size:2rem;letter-spacing:-.03em}
+.ghost-btn{border:1px solid var(--line);background:transparent;border-radius:999px;padding:9px 14px;font-weight:800}
+.display{margin:22px 0 18px;background:#1c1c19;color:#fff;border-radius:18px;padding:18px;text-align:right;min-height:110px;display:flex;flex-direction:column;justify-content:flex-end}
+.expression{color:#bdb9af;min-height:24px;font-size:1rem;word-break:break-all}
+.result{font-size:2.55rem;font-weight:800;letter-spacing:-.05em;word-break:break-all}
+.keypad{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.key{appearance:none;border:1px solid var(--line);background:#f7f2e8;border-radius:16px;padding:18px 10px;font-size:1.1rem;font-weight:800;cursor:pointer}
+.key:active{transform:translateY(1px)}
+.key.operator{background:#e8efe9;color:var(--accent)}
+.key.utility{background:#eee8dc;color:#5b554b}
+.key.wide{grid-column:span 2}
+.key.equals{grid-column:1/-1;background:var(--accent);color:#fff;border-color:var(--accent)}
+.section{padding:24px 0 68px}
+.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:20px}
+.tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 8px 22px rgba(35,28,18,.045)}
+.tool-card h3{margin:0 0 6px;font-size:1.15rem}
+.tool-card p{margin:0 0 18px;color:var(--muted)}
+.tool-form{display:grid;gap:10px}
+.tool-form label{font-size:.82rem;font-weight:800;color:var(--muted);display:grid;gap:6px}
+.tool-form input{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px;font:inherit;color:var(--ink)}
+.tool-form button{border:none;background:var(--ink);color:#fff;border-radius:12px;padding:12px 14px;font-weight:800;cursor:pointer}
+.mini-result{min-height:48px;background:#f2ede3;border-radius:12px;padding:13px;font-size:1.05rem;font-weight:900}
+.seo-copy{border-top:1px solid var(--line);padding:56px 0 70px}
+.seo-copy p{max-width:760px;color:var(--muted);line-height:1.7}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:.9rem}
+.footer-inner{display:flex;justify-content:space-between;gap:16px}
+@media(max-width:720px){
+  .hero{padding-top:48px}
+  nav{display:none}
+  .tool-grid{grid-template-columns:1fr}
+  .calc-card{padding:16px;border-radius:22px}
+  .key{padding:16px 8px}
+  .footer-inner{flex-direction:column}
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ConvertAndCalc — fast, simple calculators and converters for everyday math." />
+  <title>ConvertAndCalc — Free Calculators & Converters</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">Convert<span>&</span>Calc</a>
+      <nav>
+        <a href="#calculators">Calculators</a>
+        <a href="#converters">Converters</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div>
+        <p class="eyebrow">FREE • FAST • SIMPLE</p>
+        <h1>Calculators that get straight to the answer.</h1>
+        <p class="sub">Math, percentages, finance, health, units, and everyday conversions — all in one clean place.</p>
+      </div>
+    </section>
+
+    <section class="wrap calculator-shell">
+      <div class="calc-card">
+        <div class="calc-title-row">
+          <div>
+            <p class="eyebrow">MAIN TOOL</p>
+            <h2>Math Calculator</h2>
+          </div>
+          <button id="clearBtn" class="ghost-btn">Clear</button>
+        </div>
+
+        <div class="display">
+          <div id="expression" class="expression">&nbsp;</div>
+          <div id="result" class="result">0</div>
+        </div>
+
+        <div class="keypad">
+          <button data-action="clear" class="key utility">AC</button>
+          <button data-action="backspace" class="key utility">⌫</button>
+          <button data-value="(" class="key utility">(</button>
+          <button data-value=")" class="key utility">)</button>
+
+          <button data-value="7" class="key">7</button>
+          <button data-value="8" class="key">8</button>
+          <button data-value="9" class="key">9</button>
+          <button data-value="/" class="key operator">÷</button>
+
+          <button data-value="4" class="key">4</button>
+          <button data-value="5" class="key">5</button>
+          <button data-value="6" class="key">6</button>
+          <button data-value="*" class="key operator">×</button>
+
+          <button data-value="1" class="key">1</button>
+          <button data-value="2" class="key">2</button>
+          <button data-value="3" class="key">3</button>
+          <button data-value="-" class="key operator">−</button>
+
+          <button data-value="0" class="key wide">0</button>
+          <button data-value="." class="key">.</button>
+          <button data-value="+" class="key operator">+</button>
+
+          <button data-action="equals" class="key equals">=</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculators" class="wrap section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">POPULAR</p>
+          <h2>Everyday Calculators</h2>
+        </div>
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card" data-tool="percentage">
+          <h3>Percentage Calculator</h3>
+          <p>Find a percentage of any number.</p>
+          <div class="tool-form">
+            <label>Percent <input id="pctA" type="number" placeholder="20" /></label>
+            <label>Of <input id="pctB" type="number" placeholder="150" /></label>
+            <button onclick="calcPercentage()">Calculate</button>
+            <div class="mini-result" id="pctResult">—</div>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Tip Calculator</h3>
+          <p>Split a bill and calculate tip instantly.</p>
+          <div class="tool-form">
+            <label>Bill <input id="tipBill" type="number" placeholder="80" /></label>
+            <label>Tip % <input id="tipPct" type="number" placeholder="20" /></label>
+            <label>People <input id="tipPeople" type="number" placeholder="2" min="1" /></label>
+            <button onclick="calcTip()">Calculate</button>
+            <div class="mini-result" id="tipResult">—</div>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <h3>BMI Calculator</h3>
+          <p>Estimate BMI from height and weight.</p>
+          <div class="tool-form">
+            <label>Weight (lb) <input id="bmiWeight" type="number" placeholder="170" /></label>
+            <label>Height (in) <input id="bmiHeight" type="number" placeholder="68" /></label>
+            <button onclick="calcBMI()">Calculate</button>
+            <div class="mini-result" id="bmiResult">—</div>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Loan Payment</h3>
+          <p>Estimate a monthly loan payment.</p>
+          <div class="tool-form">
+            <label>Loan amount <input id="loanAmount" type="number" placeholder="20000" /></label>
+            <label>APR % <input id="loanRate" type="number" placeholder="6.5" /></label>
+            <label>Months <input id="loanMonths" type="number" placeholder="60" /></label>
+            <button onclick="calcLoan()">Calculate</button>
+            <div class="mini-result" id="loanResult">—</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="converters" class="wrap section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">CONVERT</p>
+          <h2>Quick Converters</h2>
+        </div>
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card">
+          <h3>Miles ↔ Kilometers</h3>
+          <div class="tool-form">
+            <label>Miles <input id="miles" type="number" placeholder="5" /></label>
+            <button onclick="milesToKm()">To kilometers</button>
+            <div class="mini-result" id="milesResult">—</div>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Pounds ↔ Kilograms</h3>
+          <div class="tool-form">
+            <label>Pounds <input id="pounds" type="number" placeholder="180" /></label>
+            <button onclick="poundsToKg()">To kilograms</button>
+            <div class="mini-result" id="poundsResult">—</div>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Fahrenheit ↔ Celsius</h3>
+          <div class="tool-form">
+            <label>°F <input id="fahrenheit" type="number" placeholder="72" /></label>
+            <button onclick="fToC()">To Celsius</button>
+            <div class="mini-result" id="tempResult">—</div>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Feet ↔ Meters</h3>
+          <div class="tool-form">
+            <label>Feet <input id="feet" type="number" placeholder="10" /></label>
+            <button onclick="feetToMeters()">To meters</button>
+            <div class="mini-result" id="feetResult">—</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap seo-copy">
+      <h2>Simple tools, clear answers.</h2>
+      <p>ConvertAndCalc is built to make everyday calculations quick and easy. No downloads, no sign-up, and no clutter — just useful calculators and converters that work on desktop and mobile.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© <span id="year"></span> ConvertAndCalc</div>
+      <div>Free calculators & converters</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
